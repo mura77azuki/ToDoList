@@ -1,0 +1,255 @@
+a{
+	display: block;
+	color: #000000;
+	border: solid 1px #bcddff;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding-inline: 5px;
+}
+a:hover{
+	color: #ffffff;
+	background-color: #bcddff;
+	cursor: pointer;
+}
+
+p.error{
+	color: #ff0000;
+	font-weight: bold;
+}
+
+form{
+	padding-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+form .item > *{
+	display: block;
+}
+form label{
+	font-weight: bold;
+}
+
+input,
+select{
+	width: 100%;
+	height: 30px;
+	font-size: 16px;
+}
+
+button{
+	width: 100%;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #ffffff;
+	border: solid 1px #7fbfff;
+	border-radius: 10px;
+}
+button:hover{
+	cursor: pointer;
+	color: #ffffff;
+	background-color: #7fbfff;
+}
+
+.status{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #7fff7f;
+}
+
+.content{
+	display: flex;
+	padding: 20px;
+	column-gap: 20px;
+	background-color: #dbedff;
+	justify-content: center;
+	min-height: calc(100vh - 50px);
+}
+
+.add > a{
+	font-weight: bold;
+	text-align: center;
+}
+
+.folder{
+	width: 30%;
+}
+.task{
+	width: 70%;
+}
+.login,
+.register,
+.error_screen{
+	max-width: 400px;
+	width: 100%;
+}
+
+.login > a{
+	margin-inline: 10px;
+}
+
+.box{
+	border-radius: 10px;
+	background-color: #ffffff;
+	box-shadow: 6px 6px 2px 1px #466a8e71;
+}
+
+.box h2{
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 40px;
+	color: #ffffff;
+	background-color: #7fbfff;
+	border-radius: 10px 10px 0 0;
+	padding-inline: 5px;
+}
+.box div{
+	padding: 10px;
+	padding-bottom: 0;
+}
+
+div.no_content{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #ffe9d5;
+	margin-top: 10px;
+	padding: 0;
+}
+
+.folder .list{
+	display: flex;
+	flex-direction: column;
+	row-gap: 5px;
+}
+.folder .list a{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.folder .list a:hover{
+	color: #000000;
+	transform: translateX(-6px) translateY(-2px);
+	box-shadow: 6px 4px 2px 1px #466a8e71;
+}
+.folder .list a.active{
+	font-weight: bold;
+	background-color: #bcddff;
+	transform: translateX(-6px) translateY(-2px);
+	box-shadow: 6px 4px 2px 1px #466a8e71;
+}
+
+.task table{
+	width: 100%;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 6px 4px 2px 1px #466a8e71;
+}
+.task th{
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #7fbfff;
+	padding-inline: 5px;
+}
+.task th:first-of-type{
+	border-radius: 10px 0 0 0;
+}
+.task th:last-of-type{
+	border-radius: 0 10px 0 0;
+}
+.task td{
+	padding-inline: 5px;
+}
+.task td:nth-of-type(2),
+.task td:nth-of-type(3),
+.task td:nth-of-type(4){
+	text-align: center;
+	white-space: nowrap;
+	width: 1px;
+}
+.task tr:nth-child(2n){
+	background-color: #e5f2ff;
+}
+.task tr:last-of-type > td:first-of-type{
+	border-radius: 0 0 0 10px;
+}
+.task tr:last-of-type > td:last-of-type{
+	border-radius: 0 0 10px 0;
+}
+
+.task span{
+	font-size: 12px;
+	font-weight: bold;
+	color: #202020;
+	background-color: #a0a0a0;
+	border-radius: 10px;
+	padding-inline: 5px;
+}
+.task span.label_danger{
+	background-color: #ff7f7f;
+}
+.task span.label_info{
+	background-color: #7fff7f;
+}
+
+
+.modal.outer{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #00000071;
+	visibility: hidden;
+}
+.modal.window{
+	width: 100%;
+	max-width: 500px;
+	background-color: #f4f9ff;
+	border-radius: 10px;
+}
+
+.header{
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #7fbfff;
+	color: #fff;
+	padding-inline: 20px;
+}
+.header > .title > a{
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+	border: solid 1px #ffffff;
+	background-color: #7fbfff;
+	border-radius: 10px 20px 10px 20px;
+	padding-inline: 10px;
+}
+.header > .menu{
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+.header > .menu p{
+	width: 100%;
+}
+.header > .menu a{
+	font-weight: bold;
+	background-color: #ffffff;
+	padding-inline: 10px;
+}
+.header > .menu a:hover{
+	color: #ffffff;
+	background-color: #7fbfff;
+}
+.header > .menu button{
+	width: fit-content;
+	word-break: keep-all;
+	border: solid 1px #ffffff;
+}
