@@ -1,23 +1,15 @@
 <div class="box">
 	<h2>フォルダを追加する</h2>
-	@if($errors->any())
-	<div>
-		<ul>
-			@foreach($errors->all() as $message)
-			<li>{{ $message }}</li>
-			@endforeach
-		</ul>
-	</div>
-	@endif
-	<form id="createFolder" action="{{ route('folders.create') }}" method="POST">
+	<form id="createFolder" action="{{ route('folders.create') }}" method="POST" onsubmit="return false">
 		@csrf
 		<div class="item">
 			<label for="title">フォルダ名</label>
 			<p id="error_title" class="error"></p>
-			<input type="text" name="title" id="title" placeholder="フォルダ名" value="{{ old('title') }}">
+			<input type="text" name="title" id="title" placeholder="フォルダ名">
 		</div>
-		<div class="item">
+		<div class="btn_area">
 			<button type="button" onclick="createFolder()">送信</button>
+			<button type="button" onclick="modal_cancel()">キャンセル</button>
 		</div>
 	</form>
 </div>

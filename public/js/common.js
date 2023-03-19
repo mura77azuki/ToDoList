@@ -36,6 +36,68 @@ function createFolder(){
 	req.send(formdata);
 }
 
+function showEditFolder(request_url){
+	let req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		let result = document.getElementById('modal_window');
+		if(req.readyState == 4){
+			if(req.status == 200){
+				result.innerHTML = req.responseText;
+				show_modal();
+			}
+			else if(req.status == 404 || req.status == 403){
+				location.href = location.href;
+			}
+		}
+	}
+	req.open('GET', request_url, true);
+	req.setRequestHeader('X-Requested-with', 'XMLHttpRequest');
+	req.send();
+}
+
+function editFolder(){
+	let req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		if(req.readyState == 4){
+			if(req.status == 200){
+				let result = JSON.parse(req.response);
+				location.href = result['url'];
+			}
+			else if(req.status == 404 || req.status == 403){
+				location.href = location.href;
+			}
+			else if(req.status == 422){
+				let result = JSON.parse(req.response);
+				document.getElementById('error_title').innerText = result['errors']['title'][0];
+			}
+		}
+	}
+	let form = document.getElementById('editFolder');
+	let formdata = new FormData(form);
+	req.open('POST', form.action, true);
+	req.setRequestHeader('X-Requested-with', 'XMLHttpRequest');
+	req.send(formdata);
+}
+
+function showDeleteFolder(request_url){
+	let req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		let result = document.getElementById('modal_window');
+		if(req.readyState == 4){
+			if(req.status == 200){
+				result.innerHTML = req.responseText;
+				show_modal();
+			}
+			else if(req.status == 404 || req.status == 403){
+				location.href = location.href;
+			}
+		}
+	}
+	req.open('GET', request_url, true);
+	req.setRequestHeader('X-Requested-with', 'XMLHttpRequest');
+	req.send();
+}
+
 function showCreateTask(request_url){
 	let req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
@@ -135,6 +197,25 @@ function editTask(){
 	req.send(formdata);
 }
 
+function showDeleteTask(request_url){
+	let req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		let result = document.getElementById('modal_window');
+		if(req.readyState == 4){
+			if(req.status == 200){
+				result.innerHTML = req.responseText;
+				show_modal();
+			}
+			else if(req.status == 404 || req.status == 403){
+				location.href = location.href;
+			}
+		}
+	}
+	req.open('GET', request_url, true);
+	req.setRequestHeader('X-Requested-with', 'XMLHttpRequest');
+	req.send();
+}
+
 function show_modal(){
 	let modal = document.getElementById('modal_outer');
 	modal.style.visibility = 'visible';
@@ -142,12 +223,20 @@ function show_modal(){
 
 function close_modal(e){
 	if(e.target.id == 'modal_outer'){
-		let modal = document.getElementById('modal_outer');
-		modal.style.visibility = 'hidden';
-		document.getElementById('modal_window').innerHTML = null;
-		if(flatpickrInstance){
-			flatpickrInstance.destroy();
-		}
+		destroy_modal();
+	}
+}
+
+function modal_cancel(){
+	destroy_modal();
+}
+
+function destroy_modal(){
+	let modal = document.getElementById('modal_outer');
+	modal.style.visibility = 'hidden';
+	document.getElementById('modal_window').innerHTML = null;
+	if(flatpickrInstance){
+		flatpickrInstance.destroy();
 	}
 }
 

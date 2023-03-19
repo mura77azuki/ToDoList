@@ -3,10 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
-use App\Models\User;
 
-class RegisterRequest extends FormRequest
+class EditFolderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +24,13 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-						'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-						'password' => ['required', Password::defaults(), 'confirmed'],
+					'title' => ['required', 'max:20'],
         ];
     }
+
+		public function attributes(){
+			return [
+				'title' => 'フォルダ名',
+			];
+		}
 }
