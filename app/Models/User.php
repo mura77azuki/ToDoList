@@ -48,6 +48,10 @@ class User extends Authenticatable
 			return $this->hasMany(Folder::class);
 		}
 
+		public function tasks(){
+			return $this->hasManyThrough(Task::class, Folder::class);
+		}
+
 		public function sendPasswordResetNotification($token){
 			$this->notify(new ResetPasswordNotification($token));
 		}
