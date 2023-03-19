@@ -72,8 +72,6 @@ class TaskController extends Controller
 
 			$this->checkRelation($folder, $task);
 
-			$task = Task::find($task->id);
-
 			$task->title = $request->title;
 			$task->status = $request->status;
 			$task->due_date = $request->due_date;
@@ -83,6 +81,19 @@ class TaskController extends Controller
 			//return redirect()->route('tasks.index', ['id' => $task->folder_id]);
 			$url = urldecode(url(route('tasks.index', ['folder' => $task->folder_id])));
 			return ['url' => $url];
+		}
+
+		public function showDeleteForm(Folder $folder, Task $task){
+			$this->checkRelation($folder, $task);
+			return view('tasks.delete', ['title' => $task->title, 'folder_id' => $folder->id, 'task_id' => $task->id]);
+		}
+		public function delete(Folder $folder, Task $task){
+			$this->checkRelation($folder, $task);
+
+			$task->delete();
+
+			session()->flash('status', 'タスクを削除しました！');
+			return redirect()->route('tasks.index', ['folder' => $task->folder_id]);
 		}
 
 		public function checkRelation(Folder $folder, Task $task){

@@ -11,6 +11,7 @@
 	@yield('pageJs')
 </head>
 <body>
+<div id="vdbanner"></div>
 @yield('header')
 @yield('content')
 @yield('footer')

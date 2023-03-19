@@ -125,6 +125,11 @@ return [
 		'url' => ':attributeに正しい形式を指定してください。',
 		'uuid' => ':attributeに有効なUUIDを指定してください。',
 
+		'mixed_case' => 'The :attribute must contain at least one uppercase and one lowercase letter.',
+		'letters' => ':attributeは1文字以上文字を含めてください。',
+		'numbers' => ':attributeは1文字以上数字を含めてください。',
+		'symbols' => ':attributeは1文字以上記号を含めてください。',
+
 		/*
 		|--------------------------------------------------------------------------
 		| Custom Validation Language Lines

@@ -130,6 +130,11 @@ return [
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
+		'mixed_case' => 'The :attribute must contain at least one uppercase and one lowercase letter.',
+		'letters' => 'The :attribute must contain at least one letter.',
+		'numbers' => 'The :attribute must contain at least one symbol.',
+		'symbols' => 'The :attribute must contain at least one number.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

@@ -1,3 +1,6 @@
+body{
+	background-color: #dbedff;
+}
 a{
 	display: block;
 	color: #000000;
@@ -96,6 +99,12 @@ button:hover{
 	background-color: #ffffff;
 	box-shadow: 6px 6px 2px 1px #466a8e71;
 }
+.box.folder > *:last-child{
+	padding-bottom: 10px;
+}
+.box.task > *:last-child{
+	padding-bottom: 10px;
+}
 
 .box h2{
 	font-size: 18px;
@@ -125,20 +134,36 @@ div.no_content{
 	flex-direction: column;
 	row-gap: 5px;
 }
-.folder .list a{
+.folder .list .item{
+	display: flex;
+	padding: 0;
+}
+.folder .list a.folder{
+	width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.folder .list a:hover{
+.folder .list a.folder:hover{
 	color: #000000;
 	transform: translateX(-6px) translateY(-2px);
 	box-shadow: 6px 4px 2px 1px #466a8e71;
 }
-.folder .list a.active{
+.folder .list a.folder.active{
 	font-weight: bold;
 	background-color: #bcddff;
 	transform: translateX(-6px) translateY(-2px);
 	box-shadow: 6px 4px 2px 1px #466a8e71;
+}
+.icon_btn{
+	width: 28px;
+	height: 26px;
+	padding: 5px;
+	padding-top: 3px;
+}
+
+.btn_area{
+	display: flex;
+	column-gap: 10px;
 }
 
 .task table{
@@ -163,10 +188,17 @@ div.no_content{
 }
 .task td:nth-of-type(2),
 .task td:nth-of-type(3),
-.task td:nth-of-type(4){
+.task td:nth-of-type(4),
+.task td:nth-of-type(5),
+.task th:nth-of-type(4),
+.task th:nth-of-type(5){
 	text-align: center;
 	white-space: nowrap;
 	width: 1px;
+}
+.task th:nth-of-type(4),
+.task th:nth-of-type(5){
+	padding-top: 5px;
 }
 .task tr:nth-child(2n){
 	background-color: #e5f2ff;
