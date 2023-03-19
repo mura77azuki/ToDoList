@@ -6,7 +6,7 @@
 		</div>
 		<div class="menu">
 			@auth
-			<p>いらっしゃいませ、{{ Auth::user()->name }}さん！</p>
+			<p>いらっしゃいませ、<a href="{{ route('profile') }}">{{ Auth::user()->name }}</a>さん！</p>
 			<button type="submit" form="logout">ログアウト</button>
 			<form id="logout" action="/logout" method="POST">@csrf</form>
 			@else

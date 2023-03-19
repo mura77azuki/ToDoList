@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PasswordResetLinkController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,15 @@ Route::get('/', [HomeController::class, 'show'])->name('home');
 
 
 Route::middleware('auth')->group(function() {
+
+	Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+	Route::post('/profile', [ProfileController::class, 'edit']);
+
+	Route::get('/profile/password', [ProfileController::class, 'showChangePassword'])->name('profile.password');
+	Route::post('/profile/password', [ProfileController::class, 'changePassword']);
+
+	Route::get('/profile/delete', [ProfileController::class, 'showDelete'])->name('profile.delete');
+	Route::post('/profile/delete', [ProfileController::class, 'delete']);
 
 	Route::middleware('ajax')->group(function() {
 		Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
